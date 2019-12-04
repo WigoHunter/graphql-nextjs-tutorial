@@ -5,7 +5,7 @@ import HabitButton from "./HabitButton";
 const colors = ["#718096", "#F56565", "#F6E05E", "#68D391", "#63B3ED"];
 
 type Props = {
-  habit: string,
+  habit: { [name: string]: any },
   index: number
 };
 
@@ -15,7 +15,7 @@ const Habit = (props: Props) => {
 
   return (
     <article>
-      <h3 style={{ borderColor: colors[index] }}>{habit}</h3>
+      <h3 style={{ borderColor: colors[index] }}>{habit.name}</h3>
       <div className="buttons">
         {dates.map(date => (
           <HabitButton key={date.getTime()} date={date} />

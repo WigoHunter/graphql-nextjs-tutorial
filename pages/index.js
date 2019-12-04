@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../components/Layout";
 import { withApollo } from "../lib/apollo";
 import { useQuery } from "@apollo/react-hooks";
@@ -15,7 +15,6 @@ const HELLO_QUERY = gql`
 
 const Home = () => {
   const { loading } = useQuery(HELLO_QUERY);
-  const [habits, setHabits] = useState(["Play Basketball"]);
 
   if (loading) {
     return <div />;
@@ -26,8 +25,8 @@ const Home = () => {
       <div className="hero">
         <h1 className="title">Level Up Your Life</h1>
         <div className="list">
-          <HabitForm setHabits={setHabits} />
-          <HabitList habits={habits} />
+          <HabitForm />
+          <HabitList />
         </div>
       </div>
 
