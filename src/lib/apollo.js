@@ -61,11 +61,16 @@ export function withApollo(PageComponent) {
   return WithApollo;
 }
 
+const isDev = process.env.NODE_ENV !== "production";
+const url = isDev
+  ? "http://localhost:3000"
+  : "https://apollo-starter.kevinkc.now.sh";
+
 const initApolloClient = (initialState = {}) => {
   const cache = new InMemoryCache().restore(initialState);
 
   const client = new ApolloClient({
-    uri: "http://localhost:3000/api/graphql",
+    uri: `${url}/api/graphql`,
     fetch,
     cache
   });

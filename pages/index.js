@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import Layout from "../components/Layout";
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../src/lib/apollo";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import HabitList from "../components/HabitList";
